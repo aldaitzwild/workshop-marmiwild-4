@@ -9,8 +9,14 @@
         <a href="/">Home</a>
         <h1><?= $recipe['title'] ?></h1>
 
-        <div>
+        <p>
             <?= $recipe['description'] ?>
+        </p>
+        <div>
+            <a href="/update?id=<?= $recipe["id"] ?>">update</a>
+        </div>
+        <div>
+            <a href="/delete?id=<?= $recipe["id"] ?>">delete</a>
         </div>
     </body>
 </html>
