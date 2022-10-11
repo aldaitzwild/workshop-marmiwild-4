@@ -1,8 +1,6 @@
 <?php
 
-// require __DIR__.'/controllers/recipe-controller.php';
-
-require __DIR__ . '/controllers/RecipeController.php';
+require __DIR__ . '/Controllers/RecipeController.php';
 
 $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $recipeController = new RecipeController();

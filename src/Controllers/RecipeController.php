@@ -1,7 +1,6 @@
 <?php
 
-require __DIR__ . '/../models/RecipeModel.php';
-
+require __DIR__ . '/../Models/RecipeModel.php';
 
 class RecipeController
 {
@@ -16,7 +15,7 @@ class RecipeController
     {
         $recipes = $this->model->getAll();
 
-        require __DIR__ . '/../views/index.php';
+        require __DIR__ . '/../Views/index.php';
     }
 
     public function show(int $id)
@@ -37,7 +36,7 @@ class RecipeController
         }
 
         // Generate the web page
-        require __DIR__ . '/../views/show.php';
+        require __DIR__ . '/../Views/show.php';
     }
 
     public function add()
@@ -59,7 +58,7 @@ class RecipeController
         }
 
         // Generate the web page
-        require __DIR__ . '/../views/form.php';
+        require __DIR__ . '/../Views/form.php';
     }
 
     private function validate(array $recipe)
@@ -103,6 +102,6 @@ class RecipeController
         }
 
         // Generate the web page
-        require __DIR__ . '/../views/form.php';
+        require __DIR__ . '/../Views/form.php';
     }
 }

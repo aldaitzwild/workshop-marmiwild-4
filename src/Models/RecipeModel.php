@@ -2,7 +2,7 @@
 
 class RecipeModel
 {
-    private PDO $connection;
+    private \PDO $connection;
 
     public function __construct()
     {
@@ -12,7 +12,7 @@ class RecipeModel
     public function getAll(): array|bool
     {
         $statement = $this->connection->query('SELECT id, title FROM recipe');
-        $recipes = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $recipes = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         return $recipes;
     }
@@ -21,10 +21,10 @@ class RecipeModel
     {
         $query = 'SELECT title, description, id FROM recipe WHERE id=:id';
         $statement = $this->connection->prepare($query);
-        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
-        $recipe = $statement->fetch(PDO::FETCH_ASSOC);
+        $recipe = $statement->fetch(\PDO::FETCH_ASSOC);
 
         return $recipe;
     }
@@ -33,8 +33,8 @@ class RecipeModel
     {
         $query = 'INSERT INTO recipe(title, description) VALUES (:title, :description)';
         $statement = $this->connection->prepare($query);
-        $statement->bindValue(':title', $recipe['title'], PDO::PARAM_STR);
-        $statement->bindValue(':description', $recipe['description'], PDO::PARAM_STR);
+        $statement->bindValue(':title', $recipe['title'], \PDO::PARAM_STR);
+        $statement->bindValue(':description', $recipe['description'], \PDO::PARAM_STR);
         $statement->execute();
     }
 
@@ -42,7 +42,7 @@ class RecipeModel
     {
         $query = 'DELETE FROM recipe WHERE id=:id';
         $statement = $this->connection->prepare($query);
-        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
 
@@ -50,9 +50,9 @@ class RecipeModel
     {
         $query = 'UPDATE recipe SET title=:title, description=:description WHERE id=:id';
         $statement = $this->connection->prepare($query);
-        $statement->bindValue(':title', $recipe['title'], PDO::PARAM_STR);
-        $statement->bindValue(':description', $recipe['description'], PDO::PARAM_STR);
-        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->bindValue(':title', $recipe['title'], \PDO::PARAM_STR);
+        $statement->bindValue(':description', $recipe['description'], \PDO::PARAM_STR);
+        $statement->bindValue(':id', $id, \PDO::PARAM_STR);
         $statement->execute();
     }
 }
