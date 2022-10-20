@@ -9,13 +9,13 @@
         <a href="/add">Add</a>
         <h1>List of Recipes</h1>
         <ul>
-            <?php foreach ($recipes as $recipe) : ?>
+            {% for recipe in recipes %}
             <li>
-                <a href="show?id=<?= $recipe['id'] ?>">
-                    <?= $recipe['title'] ?>
+                <a href="show?id={{ recipe.id }}">
+                    {{ recipe.title }}
                 </a>
             </li>
-            <?php endforeach ?>
+            {% endfor %}
         </ul>
     </body>
 </html>
